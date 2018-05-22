@@ -1,0 +1,84 @@
+<div class="rightView">
+	<form id="editViewForm" onsubmit="return false;">
+		<div class="deleteText">Delete</div>
+		<button class="doneText">Done</button>
+		<table>
+			<tr>
+				<td></td>
+				<td class="leftText"><label for="givenname">Given Name</label></td>
+				<td class="rightText"><input id="givenname"
+					autocomplete="given-name" type="text" size="50" maxlength="20"
+					name="givenname" value="<%= this.contact.givenName %>" required
+					autofocus /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="leftText"><label for="surname">Sur Name</label></td>
+				<td class="rightText"><input id="surname"
+					autocomplete="family-name" type="text" size="50" maxlength="20"
+					name="surname" value="<%= this.contact.surname %>" required /></td>
+			</tr>
+			<% _.each(this.phones, _.bind(function(val, i) { %>
+			<tr>
+				<td class="topAlign"><i class="fas fa-minus-circle red" /></td>
+				<td class="leftText"><select name="phoneTypes"
+					phone-id="<%= val.phoneID %>" id="phoneTypes"> <%
+						_.each(this.phoneTypes, function(phoneType, i) { if (phoneType ==
+						val.phoneType) { %>
+						<option selected><%= phoneType %></option> <% } else { %>
+						<option><%= phoneType %></option> <% } }); %>
+				</select></td>
+				<td class="rightText"><input placeholder="Phone Number"
+					autocomplete="tel-national" type="tel" size="50" name="phonenumber"
+					value="<%= val.phoneNumber %>" required
+					pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="xxx-xxx-xxxx" /></td>
+			</tr>
+			<%}, this)); %>
+			<tr class="addNewPhoneRow">
+				<td class="topAlign"><i class="fas fa-plus-circle green" /></td>
+				<td class="phone addNew topAlign">Add new phone</td>
+			</tr>
+			<% _.each(this.addresses, _.bind(function(val, i) { %>
+			<tr>
+				<td class="topAlign"><i class="fas fa-minus-circle red" /></td>
+				<td class="leftText"><select name="addressTypes"
+					address-id="<%= val.addressID %>" autocomplete='address-line2'
+					id="addressTypes"> <% _.each(this.addressTypes,
+						function(addressType, i) { if (addressType == val.addressType) {
+						%>
+						<option selected><%= addressType %></option> <% } else { %>
+						<option><%= addressType %></option> <% } }); %>
+				</select></td>
+				<td class="rightText"><input name="street"
+					placeholder="Street Address" autocomplete="street-address"
+					type="text" maxlength="70" size="50" value="<%= val.street %>"
+					required pattern="^\d+\s[A-z]+\s[A-z]+" title="101 Second Street">
+					<br /> <input name="city" type="text" placeholder="City"
+					autocomplete="address-level2" size="25" value="<%= val.city %>"
+					required /> <input autocomplete='address-line3' name="state"
+					placeholder="State" type="text" maxlength="2" size="10"
+					value="<%= val.state %>" required pattern="[A-Z][A-Z]" title="CA" />
+					<input name="postalcode" autocomplete="postal-code"
+					placeholder="Postal Code" type="text" size="20" maxlength="5"
+					value="<%= val.postalCode %>" required
+					pattern="^\d{5}(?:[-\s]\d{4})?$" title="90001" /></td>
+			</tr>
+			<%}, this)); %>
+			<tr class="addNewAddressRow">
+				<td class="topAlign"><i class="fas fa-plus-circle green" /></td>
+				<td class="address addNew topAlign">Add new address</td>
+			</tr>
+		</table>
+	</form>
+	<dialog id="favDialog">
+	<div class="dialogBox"></div>
+	<section>
+		<p>Are you sure you wanted to delete the selected Contact?</p>
+	</section>
+	<menu>
+		<button id="delete" type="submit">Yes (Delete It)</button>
+		<button id="cancelDelete">No (Keep It)</button>
+	</menu>
+</div>
+</dialog>
+</div>

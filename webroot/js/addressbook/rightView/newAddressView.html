@@ -1,0 +1,19 @@
+<tr>
+	<td class="topAlign"><i class="fas fa-minus-circle red" /></td>
+	<td class="leftText"><select name="addressTypes" address-id="new"
+		autocomplete='address-line2' id="addressTypes"> <%
+			_.each(this.addressTypes, function(addressType, i) { %>
+			<option><%= addressType %></option> <% }); %>
+	</select></td>
+	<td class="rightText"><input placeholder="Street Address"
+		name="street" autocomplete="street-address" type="text" maxlength="70"
+		size="50" value="" required pattern="^\d+\s[A-z]+\s[A-z]+"
+		title="101 Second Street"> <br /> <input name="city"
+		type="text" placeholder="City" autocomplete="address-level2" size="25"
+		value="" required /> <input autocomplete='address-line3'
+		placeholder="State" name="state" type="text" maxlength="2" size="10"
+		value="" required pattern="[A-Z][A-Z]" title="CA" /> <input
+		autocomplete="postal-code" name="postalcode" placeholder="Postal Code"
+		type="text" size="20" maxlength="5" value="" required
+		pattern="^\d{5}(?:[-\s]\d{4})?$" title="90001" /></td>
+</tr>

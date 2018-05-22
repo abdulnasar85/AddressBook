@@ -1,0 +1,12 @@
+<tr>
+	<td class="topAlign"><i class="fas fa-minus-circle red" /></td>
+	<td class="leftText"><select name="phoneTypes" phone-id="new"
+		id="phoneTypes"> <% _.each(this.phoneTypes,
+			function(phoneType, i) { %>
+			<option><%= phoneType %></option> <% }); %>
+	</select></td>
+	<td class="rightText"><input autocomplete="tel-national"
+		type="tel" size="50" placeholder="Phone Number" name="phonenumber"
+		value="" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+		title="xxx-xxx-xxxx" /></td>
+</tr>

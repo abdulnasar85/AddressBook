@@ -1,0 +1,167 @@
+@borderColor: #969393;
+@keyframes fadeRightContent {
+    from {color: #FFFFFF;}
+    to {color: #000000;}
+}
+.green {
+    color: #118710;
+}
+.red {
+    color: #c62817;
+}
+.topAlign {
+   vertical-align: text-top;
+}
+.mainView {
+    font: 100 18px sans-serif;
+    width: 100%;
+    border: solid @borderColor 1.5px;
+    .fa-plus-circle,
+    .fa-minus-circle {
+        cursor: pointer;
+        font-size: 20px;
+    }
+    .leftArea {
+        display: inline-block;
+        vertical-align: top;
+    .leftView {
+       width: 300px;
+       height: 700px;
+       .leftList {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          .noname {
+             font: italic bold 19px sans-serif;
+             color: #1A5084;
+          }
+          .addressBookRow,
+          .addNew {
+              line-height: 35px;
+              outline: none;
+              list-style-position:inside;
+              border-bottom: solid @borderColor 1.5px;
+              padding-left: 6px;
+              &:hover {
+                 cursor: pointer;
+                 outline: none;
+                 }
+              &.selected {
+                 color: #1A5084;
+                 font-weight: 700;
+                 font-size: 20px;
+              }
+             }
+             .addNew {
+                 font-style: italic;
+              }
+          }
+       }
+    }
+    .rightArea {
+       padding: 18px;
+       .editText,
+       .doneText {
+          font: 100 18px sans-serif;
+          border: none;
+          color: #1067BD;
+          float: right;
+          &:hover {
+            cursor: pointer;
+          }
+       }
+       .deleteText {
+          float: left;
+          color: red;
+          &:hover {
+            cursor: pointer;
+          }
+       }
+       display: inline-block;
+       border-left: solid @borderColor 1.5px;
+       margin-left: -5px;
+      .rightView {
+       width: 800px;
+       height: 700px;
+       animation-name: fadeRightContent;
+       animation-duration: 3s;
+       float: right;
+       .editText {
+          
+       }
+       table {
+          width: 100%;
+          padding: 60px;
+          tr {
+             line-height: 50px;
+          }
+          .addNewPhoneRow,
+          .addNewAddressRow {
+              cursor: pointer;
+           }
+          .leftText {
+             color: #535863;
+             vertical-align: text-top;
+             width: 200px;
+          }
+          .rightText {
+             width: calc(100% - 300px);
+             input {
+                 line-height: 32px;
+                 font-size: 15px;
+                 padding-left: 10px;
+             }
+             font-size: 21px;
+          }
+       }
+    }
+    }
+
+}
+
+input {
+     outline: none;
+}
+input:invalid {
+  border: 2px solid red;
+}
+
+input:valid {
+  border: solid @borderColor 1px;
+}
+// overwriting select css to match the spec with drop arrow image
+select {
+    width: 160px;
+    outline: none;
+    padding: 5px;
+    font: 100 18px sans-serif;
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+    height: 34px;
+    cursor: pointer;
+    background: url(/images/down-arrow.png) no-repeat right #fff;
+    -webkit-appearance: none;
+}
+dialog {
+	border-radius: 13px;
+    border-width: 1.5px;
+    font-size: 26px;
+    padding: 50px;
+    width: 500px;
+    text-align: center;
+    #delete {
+       float:left;
+       color: red;
+    }
+    #cancelDelete {
+       float: right;
+       color: #1067BD
+    }
+    button {
+       cursor: pointer;
+       outline: none;
+       border: 0;
+       font: 100 20px sans-serif;
+    }
+}

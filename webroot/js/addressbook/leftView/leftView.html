@@ -1,0 +1,10 @@
+<div class="leftView">
+	<ul class="leftList">
+		<% _.each(this.addressBookItems, function(val, i) { %>
+		<li role="menuitem" class="addressBookRow" id="<%= val.contactID
+			%>" tabindex="<%= i+1 %>"><%= val.givenName %> <%= val.surname %></li>
+		<%}); %>
+		<li role="menuitem" class="addNew"><i
+			class="fas fa-plus-circle green"></i> Add New Record</li>
+	</ul>
+</div>

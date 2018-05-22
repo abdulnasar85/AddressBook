@@ -1,0 +1,26 @@
+<div class="rightView">
+	<div class="editText">Edit</div>
+	<table>
+		<tr>
+			<td class="leftText">Given Name</td>
+			<td class="rightText"><%= this.contact.givenName %></td>
+		</tr>
+		<tr>
+			<td class="leftText">Sur Name</td>
+			<td class="rightText"><%= this.contact.surname %></td>
+		</tr>
+		<% _.each(this.phones, function(val, i) { %>
+		<tr>
+			<td class="leftText"><%= val.phoneType %></td>
+			<td class="rightText"><%= val.phoneNumber %></td>
+		</tr>
+		<%}); %> <% _.each(this.addresses, function(val, i) { %>
+		<tr>
+			<td class="leftText"><%= val.addressType %></td>
+			<td class="rightText"><%= val.street %> <br /> <%= val.city %>,
+				<%= val.state %> <%= val.postalCode %>
+			</td>
+		</tr>
+		<%}); %>
+	</table>
+</div>
